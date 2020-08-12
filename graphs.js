@@ -7,3 +7,10 @@ Graph.prototype.addNode = function(data) {
     this.AdjList.set(data, []);
 }
 
+Graph.prototype.addEdge = function(from, to) {
+    // find the node and add the edge to it's list
+    this.AdjList.get(to).push(from);
+    // we need to do this for both directions because graphs
+    // dont have direction
+    this.AdjList.get(from).push(to);
+}
