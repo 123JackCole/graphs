@@ -37,3 +37,6 @@ edges.forEach(([node1, node2]) => {
 
 graph.print();
 
+
+
+
