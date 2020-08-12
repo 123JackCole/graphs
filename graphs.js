@@ -15,3 +15,25 @@ Graph.prototype.addEdge = function(node1, node2) {
     this.AdjList.get(node1).push(node2);
 }
 
+Graph.prototype.print = function() {
+    for ([key, value] of this.AdjList) {
+        console.log(key, value);
+    }
+}
+
+let nodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+let edges = [['A', 'B'], ['A', 'C'], ['A', 'D'], ['C', 'F'], ['D', 'E'],
+            ['E', 'F'], ['C', 'G'], ['C', 'H'], ['E', 'H']];
+
+graph = new Graph();
+
+nodes.forEach(node => {
+    graph.addNode(node);
+});
+
+edges.forEach(([node1, node2]) => {
+    graph.addEdge(node1, node2);
+});
+
+graph.print();
+
