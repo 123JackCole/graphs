@@ -1,3 +1,5 @@
+// Implementation
+
 function Graph() {
     this.AdjList = new Map();
 }
@@ -37,6 +39,10 @@ edges.forEach(([node1, node2]) => {
 
 graph.print();
 
+// Traversal
 
+// BFS
+
+// DFS
 
 
