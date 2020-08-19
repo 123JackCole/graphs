@@ -23,12 +23,15 @@ Graph.prototype.print = function() {
     }
 }
 
+// create our nodes and edges in arrays
 let nodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 let edges = [['A', 'B'], ['A', 'C'], ['A', 'D'], ['C', 'F'], ['D', 'E'],
             ['E', 'F'], ['C', 'G'], ['C', 'H'], ['E', 'H']];
 
+// Create a new graph
 graph = new Graph();
 
+// loop through our arrays to add our nodes and edges to our graph
 nodes.forEach(node => {
     graph.addNode(node);
 });
@@ -37,11 +40,16 @@ edges.forEach(([node1, node2]) => {
     graph.addEdge(node1, node2);
 });
 
+// print it
 graph.print();
 
 // Traversal
 
+
+
 // BFS
+
+
 
 // DFS
 
