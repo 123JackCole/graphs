@@ -28,7 +28,7 @@ let nodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 let edges = [['A', 'B'], ['A', 'C'], ['A', 'D'], ['C', 'F'], ['D', 'E'],
             ['E', 'F'], ['C', 'G'], ['C', 'H'], ['E', 'H']];
 
-// Create a new graph
+// create a new graph
 graph = new Graph();
 
 // loop through our arrays to add our nodes and edges to our graph
@@ -45,11 +45,35 @@ graph.print();
 
 // Traversal
 
-
-
 // BFS
 
+console.log(graph.AdjList)
 
+const bfs = (node) => {
+
+    let visited = [];
+
+    let queue = [node];
+
+    while (queue.length) {
+
+        const data = queue.shift();
+        const list = this.AdjList.get(data);
+
+        for (i in list) {
+
+            node = list[i];
+
+            if (!visited.includes(node)) {
+                visited.push(node);
+                queue.push(node);
+            }
+
+        }
+
+    }
+
+}
 
 // DFS
 
