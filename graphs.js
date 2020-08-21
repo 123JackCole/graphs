@@ -47,39 +47,39 @@ graph.print();
 
 // BFS
 
-console.log(graph.AdjList)
-
 Graph.prototype.bfs = function(node) {
 
-    let visited = [];
+    const visited = [];
+    for (const key of this.AdjList.keys()) {
+        key === node ? visited[key] = true : visited[key] = false;
+    }
 
     let queue = [node];
 
     while (queue.length) {
 
-        const data = queue.shift();
-        const list = this.AdjList.get(data);
+        const current = queue.shift();
+        const edges = this.AdjList.get(current);
 
-        for (i in list) {
+        for (const i in edges) {
 
-            node = list[i];
+            const currentNode = edges[i];
 
-            if (!visited.includes(node)) {
-                visited.push(node);
-                queue.push(node);
+            if (!visited[currentNode]) {
+                visited[currentNode] = true;
+                queue.push(currentNode);
             }
 
         }
 
     }
 
-    return visited;
     console.log(visited);
+    return visited;
 
 }
 
 graph.bfs('A');
 
 // DFS
-
 
