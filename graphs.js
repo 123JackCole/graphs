@@ -49,7 +49,7 @@ graph.print();
 
 console.log(graph.AdjList)
 
-const bfs = (node) => {
+Graph.prototype.bfs = function(node) {
 
     let visited = [];
 
@@ -73,7 +73,12 @@ const bfs = (node) => {
 
     }
 
+    return visited;
+    console.log(visited);
+
 }
+
+graph.bfs('A');
 
 // DFS
 
