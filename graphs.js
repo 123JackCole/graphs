@@ -49,24 +49,31 @@ graph.print();
 
 Graph.prototype.BFS = function(node) {
 
+    // create our visited array and assign all keys the value of false
+    // assign our starting node to true
     const visited = [];
     for (const key of this.AdjList.keys()) {
         key === node ? visited[key] = true : visited[key] = false;
     }
 
+    // create our queue populated with our first node
     const queue = [node];
 
+    // loop through our queue
     while (queue.length) {
 
+        // get the current node and its edges
         const current = queue.shift();
         const edges = this.AdjList.get(current);
 
         console.log(current);
 
+        // loop through the nodes edges
         for (const i in edges) {
 
             const currentNode = edges[i];
 
+            // add edges not yet visited to the queue
             if (!visited[currentNode]) {
                 visited[currentNode] = true;
                 queue.push(currentNode);
@@ -87,6 +94,7 @@ graph.BFS('A');
 
 Graph.prototype.DFS = function(node) {
 
+    // create our visited array and assign all keys the value of false
     let visited = [];
     for (const key of this.AdjList.keys()) {
         visited[key] = false;
@@ -97,18 +105,25 @@ Graph.prototype.DFS = function(node) {
     console.log(visited);
 }
 
+// recursive helper function
 Graph.prototype.DFSRecursive = function(node, visited) {
 
+    // set the current node to visited
     visited[node] = true;
 
+    // get its edges
     const edges = this.AdjList.get(node);
 
     console.log(node);
 
+    // loop through its edges
     for(const node of edges) {
+
+        // if the edge is not visited run our heper function to it
         if(!visited[node]) {
             this.DFSRecursive(node, visited)
         }
+
     }
 
     return visited;
