@@ -47,19 +47,21 @@ graph.print();
 
 // BFS
 
-Graph.prototype.bfs = function(node) {
+Graph.prototype.BFS = function(node) {
 
     const visited = [];
     for (const key of this.AdjList.keys()) {
         key === node ? visited[key] = true : visited[key] = false;
     }
 
-    let queue = [node];
+    const queue = [node];
 
     while (queue.length) {
 
         const current = queue.shift();
         const edges = this.AdjList.get(current);
+
+        console.log(current);
 
         for (const i in edges) {
 
@@ -79,7 +81,37 @@ Graph.prototype.bfs = function(node) {
 
 }
 
-graph.bfs('A');
+graph.BFS('A');
 
 // DFS
 
+Graph.prototype.DFS = function(node) {
+
+    let visited = [];
+    for (const key of this.AdjList.keys()) {
+        visited[key] = false;
+    }
+
+    visited = this.DFSRecursive(node, visited);
+
+    console.log(visited);
+}
+
+Graph.prototype.DFSRecursive = function(node, visited) {
+
+    visited[node] = true;
+
+    const edges = this.AdjList.get(node);
+
+    console.log(node);
+
+    for(const node of edges) {
+        if(!visited[node]) {
+            this.DFSRecursive(node, visited)
+        }
+    }
+
+    return visited;
+}
+
+graph.DFS('A');
